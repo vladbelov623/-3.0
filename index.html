@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вечный Покой — Ритуальные Услуги</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --dark: #141414;
+    --dark2: #1e1e1e;
+    --dark3: #2a2a2a;
+    --gray: #555;
+    --gray2: #888;
+    --gray3: #bbb;
+    --white: #f5f5f0;
+    --white2: #e8e8e0;
+    --accent: #c8c0a8;
+    --accent2: #a89880;
+    --gold: #d4b896;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--gray); }
+
+  /* HEADER */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.98), transparent);
+    border-bottom: 0.5px solid rgba(200,192,168,0.15);
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--white); font-weight: 600; }
+
+  nav { display: flex; gap: 36px; align-items: center; }
+  nav a {
+    color: var(--gray3);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: var(--accent); }
+
+  .nav-phone {
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    border: 0.5px solid rgba(200,192,168,0.4);
+    padding: 8px 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .nav-phone:hover { background: var(--accent); color: var(--black); }
+
+  /* HERO */
+  .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 50% 60%, rgba(200,192,168,0.05) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(200,192,168,0.02) 60px, rgba(200,192,168,0.02) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(200,192,168,0.02) 60px, rgba(200,192,168,0.02) 61px);
+  }
+
+  .hero-ornament {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 200px;
+    font-weight: 300;
+    color: rgba(200,192,168,0.04);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: -10px;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 1s 0.6s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    color: var(--gray2);
+    letter-spacing: 2px;
+    max-width: 500px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 1s 0.9s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeUp 1s 1.2s forwards;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--black);
+    border: none;
+    padding: 14px 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white2);
+    border: 0.5px solid rgba(200,192,168,0.4);
+    padding: 14px 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 400;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeIn 1s 2s forwards;
+  }
+  .scroll-indicator span { font-size: 9px; letter-spacing: 3px; color: var(--gray2); text-transform: uppercase; }
+  .scroll-line {
+    width: 0.5px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { to { opacity: 1; } }
+  @keyframes scrollPulse { 0%,100% { transform: scaleY(1); opacity: 1; } 50% { transform: scaleY(0.6); opacity: 0.5; } }
+
+  /* SECTIONS */
+  section { padding: 100px 60px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-label::after { content: ''; flex: 0 0 40px; height: 0.5px; background: var(--accent); }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 60px;
+    color: var(--white);
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* SERVICES GRID */
+  #services { background: var(--dark); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(200,192,168,0.1);
+  }
+
+  .service-card {
+    background: var(--dark);
+    padding: 48px 40px;
+    transition: background 0.4s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 0.5px;
+    background: var(--accent);
+    transition: width 0.4s;
+  }
+  .service-card:hover { background: var(--dark2); }
+  .service-card:hover::before { width: 100%; }
+
+  .service-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: block;
+    filter: grayscale(1) brightness(0.8);
+    transition: filter 0.3s;
+  }
+  .service-card:hover .service-icon { filter: grayscale(0) brightness(1); }
+
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+  .service-card p { font-size: 12px; color: var(--gray2); line-height: 1.8; }
+
+  .service-card .price-from {
+    margin-top: 20px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  /* COFFINS SECTION */
+  #coffins { background: var(--black); }
+
+  .coffin-configurator {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .config-panel { }
+
+  .config-group { margin-bottom: 36px; }
+  .config-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gray2);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .config-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .config-btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: 0.5px solid rgba(200,192,168,0.25);
+    color: var(--gray3);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .config-btn:hover, .config-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(200,192,168,0.05);
+  }
+
+  .coffin-preview {
+    background: var(--dark);
+    border: 0.5px solid rgba(200,192,168,0.1);
+    padding: 40px;
+    text-align: center;
+    position: sticky;
+    top: 100px;
+  }
+
+  .coffin-visual {
+    width: 100%;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .coffin-svg {
+    transition: all 0.5s;
+  }
+
+  .coffin-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .coffin-desc {
+    font-size: 11px;
+    color: var(--gray2);
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+
+  /* PACKAGES */
+  #packages { background: var(--dark); }
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(200,192,168,0.1);
+  }
+
+  .package-card {
+    background: var(--dark);
+    padding: 48px 36px;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .package-card:hover { background: var(--dark2); }
+
+  .package-card.featured {
+    background: var(--dark2);
+  }
+
+  .pkg-badge {
+    position: absolute;
+    top: 24px; right: 24px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--accent);
+    padding: 4px 12px;
+  }
+
+  .pkg-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+
+  .pkg-price {
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--accent);
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 4px;
+  }
+  .pkg-price span { font-size: 14px; color: var(--gray2); font-family: 'Montserrat', sans-serif; }
+
+  .pkg-divider {
+    width: 40px;
+    height: 0.5px;
+    background: rgba(200,192,168,0.3);
+    margin: 24px 0;
+  }
+
+  .pkg-features {
+    list-style: none;
+    margin-bottom: 36px;
+  }
+  .pkg-features li {
+    font-size: 12px;
+    color: var(--gray3);
+    padding: 8px 0;
+    border-bottom: 0.5px solid rgba(200,192,168,0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .pkg-features li::before {
+    content: '—';
+    color: var(--accent);
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  /* LOYALTY */
+  #loyalty { background: var(--black); }
+
+  .loyalty-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(200,192,168,0.1);
+  }
+
+  .loyalty-tier {
+    background: var(--black);
+    padding: 40px 28px;
+    text-align: center;
+    position: relative;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  .loyalty-tier:hover { background: var(--dark); }
+
+  .tier-icon {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 16px;
+    filter: grayscale(1);
+    transition: filter 0.3s;
+  }
+  .loyalty-tier:hover .tier-icon { filter: grayscale(0); }
+
+  .tier-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .tier-points {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .tier-benefits {
+    font-size: 11px;
+    color: var(--gray2);
+    line-height: 1.8;
+  }
+
+  .tier-discount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    margin: 16px 0 8px;
+  }
+
+  /* FLOWERS */
+  #flowers { background: var(--dark); }
+
+  .flowers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(200,192,168,0.1);
+  }
+
+  .flower-card {
+    background: var(--dark);
+    padding: 32px 24px;
+    text-align: center;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  .flower-card:hover { background: var(--dark2); }
+
+  .flower-emoji { font-size: 48px; display: block; margin-bottom: 16px; filter: grayscale(1); transition: filter 0.4s; }
+  .flower-card:hover .flower-emoji { filter: grayscale(0); }
+  .flower-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; margin-bottom: 6px; }
+  .flower-price { font-size: 14px; color: var(--accent); }
+
+  /* BUS */
+  #transport { background: var(--black); }
+
+  .transport-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .transport-visual {
+    background: var(--dark);
+    border: 0.5px solid rgba(200,192,168,0.1);
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .transport-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .transport-info p { font-size: 13px; color: var(--gray2); margin-bottom: 30px; line-height: 1.8; }
+
+  .transport-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: rgba(200,192,168,0.1);
+    margin-bottom: 30px;
+  }
+
+  .t-option {
+    background: var(--dark);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .t-option:hover { background: var(--dark2); }
+  .t-option span:last-child { color: var(--accent); font-family: 'Cormorant Garamond', serif; font-size: 18px; }
+
+  /* SPECIAL SERVICES */
+  #special { background: var(--dark); }
+
+  .special-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(200,192,168,0.1);
+  }
+
+  .special-card {
+    background: var(--dark);
+    padding: 48px;
+    display: flex;
+    gap: 32px;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  .special-card:hover { background: var(--dark2); }
+
+  .special-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: rgba(200,192,168,0.15);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .special-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+  .special-content p { font-size: 12px; color: var(--gray2); line-height: 1.8; }
+  .special-content .price { margin-top: 16px; font-size: 10px; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; }
+
+  /* PLOT */
+  #plot { background: var(--black); }
+
+  .plot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(200,192,168,0.1);
+  }
+
+  .plot-card {
+    background: var(--black);
+    padding: 40px 32px;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  .plot-card:hover { background: var(--dark); }
+
+  .plot-zone {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .plot-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .plot-features {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+  .plot-features li {
+    font-size: 11px;
+    color: var(--gray2);
+    padding: 6px 0;
+    border-bottom: 0.5px solid rgba(200,192,168,0.06);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .plot-features li::before { content: '·'; color: var(--accent); font-size: 16px; }
+
+  .plot-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--accent);
+    font-weight: 300;
+  }
+
+  /* CART */
+  .cart-bar {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--dark2);
+    border: 0.5px solid rgba(200,192,168,0.3);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 200;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .cart-bar:hover { background: var(--dark3); border-color: var(--accent); }
+
+  .cart-count {
+    background: var(--accent);
+    color: var(--black);
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .cart-text { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--white2); }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--dark);
+    border: 0.5px solid rgba(200,192,168,0.2);
+    max-width: 600px;
+    width: 100%;
+    padding: 48px;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none;
+    border: none;
+    color: var(--gray2);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .modal-close:hover { color: var(--accent); }
+
+  .modal h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+  .modal-sub { font-size: 12px; color: var(--gray2); margin-bottom: 32px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray2);
+    margin-bottom: 8px;
+  }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    background: var(--dark2);
+    border: 0.5px solid rgba(200,192,168,0.2);
+    color: var(--white);
+    padding: 12px 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+  .form-group select { appearance: none; cursor: pointer; }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 60px;
+    border-top: 0.5px solid rgba(200,192,168,0.1);
+  }
+
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand .logo { font-size: 20px; margin-bottom: 16px; display: block; }
+  .footer-brand p { font-size: 12px; color: var(--gray2); line-height: 1.8; max-width: 260px; }
+
+  .footer-col h4 {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a {
+    font-size: 12px;
+    color: var(--gray2);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-col ul li a:hover { color: var(--white); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 0.5px solid rgba(200,192,168,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--gray);
+  }
+
+  /* TOAST */
+  .toast {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background: var(--dark2);
+    border: 0.5px solid rgba(200,192,168,0.3);
+    padding: 16px 24px;
+    font-size: 12px;
+    color: var(--accent);
+    z-index: 300;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  /* DIVIDERS */
+  .ornament-divider {
+    text-align: center;
+    padding: 20px 0;
+    color: rgba(200,192,168,0.3);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    letter-spacing: 8px;
+  }
+
+  /* Responsive basics */
+  @media (max-width: 1024px) {
+    header { padding: 20px 30px; }
+    nav { display: none; }
+    section { padding: 60px 30px; }
+    .hero h1 { font-size: 48px; }
+    .services-grid, .packages-grid { grid-template-columns: 1fr; }
+    .coffin-configurator, .transport-grid { grid-template-columns: 1fr; }
+    .loyalty-grid, .flowers-grid { grid-template-columns: repeat(2, 1fr); }
+    .special-grid { grid-template-columns: 1fr; }
+    .plot-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo"><span>Вечный</span> Покой</div>
+  <nav>
+    <a href="#services">Услуги</a>
+    <a href="#coffins">Гробы</a>
+    <a href="#packages">Пакеты</a>
+    <a href="#plot">Участки</a>
+    <a href="#flowers">Цветы</a>
+    <a href="#loyalty">Программа лояльности</a>
+    <div class="nav-phone" onclick="openModal('contact')">+7 (700) 000-00-00</div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament">∞</div>
+  <p class="hero-eyebrow">Ритуальные услуги · Казахстан</p>
+  <h1>С достоинством<br>в <em>последний путь</em></h1>
+  <p class="hero-sub">Мы сопровождаем в самый трудный момент. Профессионально, деликатно, с уважением к памяти ваших близких.</p>
+  <div class="hero-cta">
+    <button class="btn-primary" onclick="openModal('order')">Получить консультацию</button>
+    <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Наши услуги</button>
+  </div>
+  <div class="scroll-indicator">
+    <span>Далее</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <p class="section-label">Что мы предлагаем</p>
+    <h2 class="section-title">Полный комплекс<br><em>ритуальных услуг</em></h2>
+
+    <div class="services-grid">
+      <div class="service-card" onclick="openModal('coffin-service')">
+        <span class="service-icon">⚰️</span>
+        <h3>Гробы на заказ</h3>
+        <p>Изготовление гробов любого размера, цвета и стиля. Классика, премиум, эко-материалы. Подбор с учётом пожеланий семьи.</p>
+        <p class="price-from">от 45 000 тг</p>
+      </div>
+
+      <div class="service-card" onclick="openModal('transport-service')">
+        <span class="service-icon">🚌</span>
+        <h3>Транспорт</h3>
+        <p>Катафалк для перевозки усопшего и автобус для сопровождения гостей на поминки. Вместимость от 20 до 60 человек.</p>
+        <p class="price-from">от 30 000 тг</p>
+      </div>
+
+      <div class="service-card" onclick="openModal('music-service')">
+        <span class="service-icon">🎵</span>
+        <h3>Музыкальное сопровождение</h3>
+        <p>Живая музыка или запись. Религиозные мелодии, классика, народная музыка. Подбор репертуара совместно с семьёй.</p>
+        <p class="price-from">от 25 000 тг</p>
+      </div>
+
+      <div class="service-card" onclick="openModal('video-service')">
+        <span class="service-icon">🎬</span>
+        <h3>Видео и оживление фото</h3>
+        <p>Создание траурного видео, слайд-шоу памяти. Уникальная технология оживления фотографий усопшего — последний живой взгляд.</p>
+        <p class="price-from">от 20 000 тг</p>
+      </div>
+
+      <div class="service-card" onclick="openModal('psych-service')">
+        <span class="service-icon">🕊️</span>
+        <h3>Психологическая помощь</h3>
+        <p>Работа с горем и утратой. Индивидуальные и семейные консультации. Поддержка в первые дни и на протяжении года.</p>
+        <p class="price-from">от 15 000 тг</p>
+      </div>
+
+      <div class="service-card" onclick="openModal('plot-service')">
+        <span class="service-icon">🌿</span>
+        <h3>Участок на кладбище</h3>
+        <p>Подбор и оформление участка. Стандарт, расширенный и VIP-зоны. Уход и благоустройство по договору.</p>
+        <p class="price-from">от 80 000 тг</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COFFIN CONFIGURATOR -->
+<section id="coffins">
+  <div class="section-inner">
+    <p class="section-label">Конструктор гроба</p>
+    <h2 class="section-title">Гробы <em>на заказ</em></h2>
+
+    <div class="coffin-configurator">
+      <div class="config-panel">
+        <div class="config-group">
+          <span class="config-label">Размер</span>
+          <div class="config-options">
+            <button class="config-btn" data-group="size" data-val="S" data-price="45000" onclick="selectConfig(this)">160 см</button>
+            <button class="config-btn active" data-group="size" data-val="M" data-price="55000" onclick="selectConfig(this)">170 см</button>
+            <button class="config-btn" data-group="size" data-val="L" data-price="65000" onclick="selectConfig(this)">180 см</button>
+            <button class="config-btn" data-group="size" data-val="XL" data-price="80000" onclick="selectConfig(this)">190 см</button>
+            <button class="config-btn" data-group="size" data-val="XXL" data-price="95000" onclick="selectConfig(this)">200+ см</button>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <span class="config-label">Материал</span>
+          <div class="config-options">
+            <button class="config-btn active" data-group="material" data-val="pine" data-price="0" onclick="selectConfig(this)">Сосна</button>
+            <button class="config-btn" data-group="material" data-val="oak" data-price="40000" onclick="selectConfig(this)">Дуб</button>
+            <button class="config-btn" data-group="material" data-val="mahogany" data-price="80000" onclick="selectConfig(this)">Красное дерево</button>
+            <button class="config-btn" data-group="material" data-val="eco" data-price="-10000" onclick="selectConfig(this)">Эко-материал</button>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <span class="config-label">Цвет</span>
+          <div class="config-options">
+            <button class="config-btn active" data-group="color" data-val="black" data-price="0" data-color="#1a1a1a" onclick="selectConfig(this)">Чёрный</button>
+            <button class="config-btn" data-group="color" data-val="dark-brown" data-price="5000" data-color="#3d2b1f" onclick="selectConfig(this)">Тёмно-коричневый</button>
+            <button class="config-btn" data-group="color" data-val="white" data-price="5000" data-color="#e8e0d0" onclick="selectConfig(this)">Белый</button>
+            <button class="config-btn" data-group="color" data-val="natural" data-price="0" data-color="#8b6914" onclick="selectConfig(this)">Натуральный</button>
+            <button class="config-btn" data-group="color" data-val="silver" data-price="10000" data-color="#8a8a8a" onclick="selectConfig(this)">Серебряный</button>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <span class="config-label">Стиль</span>
+          <div class="config-options">
+            <button class="config-btn active" data-group="style" data-val="classic" data-price="0" onclick="selectConfig(this)">Классика</button>
+            <button class="config-btn" data-group="style" data-val="orthodox" data-price="10000" onclick="selectConfig(this)">Православный</button>
+            <button class="config-btn" data-group="style" data-val="muslim" data-price="10000" onclick="selectConfig(this)">Мусульманский</button>
+            <button class="config-btn" data-group="style" data-val="premium" data-price="30000" onclick="selectConfig(this)">Премиум</button>
+            <button class="config-btn" data-group="style" data-val="vip" data-price="60000" onclick="selectConfig(this)">VIP</button>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <span class="config-label">Обивка внутри</span>
+          <div class="config-options">
+            <button class="config-btn active" data-group="lining" data-val="satin-white" data-price="0" onclick="selectConfig(this)">Белый сатин</button>
+            <button class="config-btn" data-group="lining" data-val="satin-cream" data-price="5000" onclick="selectConfig(this)">Кремовый атлас</button>
+            <button class="config-btn" data-group="lining" data-val="velvet" data-price="15000" onclick="selectConfig(this)">Бордовый бархат</button>
+            <button class="config-btn" data-group="lining" data-val="silk" data-price="25000" onclick="selectConfig(this)">Шёлк</button>
+          </div>
+        </div>
+
+        <button class="btn-primary" style="width:100%; margin-top: 16px;" onclick="addToCartCoffin()">Добавить в заказ</button>
+      </div>
+
+      <div class="coffin-preview">
+        <div class="coffin-visual">
+          <svg class="coffin-svg" id="coffinSvg" viewBox="0 0 240 320" width="180" height="240">
+            <defs>
+              <linearGradient id="coffinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#2a2a2a;stop-opacity:1" id="gradStop1"/>
+                <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" id="gradStop2"/>
+              </linearGradient>
+            </defs>
+            <!-- Coffin body -->
+            <path id="coffinBody" d="M80,20 L160,20 L200,60 L220,160 L200,300 L40,300 L20,160 L40,60 Z" 
+                  fill="url(#coffinGrad)" stroke="rgba(200,192,168,0.4)" stroke-width="1"/>
+            <!-- Lid detail -->
+            <path d="M85,25 L155,25 L192,62 L210,155 L193,290 L47,290 L30,155 L48,62 Z" 
+                  fill="none" stroke="rgba(200,192,168,0.15)" stroke-width="0.5"/>
+            <!-- Cross / ornament -->
+            <line id="coffinCross" x1="120" y1="100" x2="120" y2="220" stroke="rgba(200,192,168,0.5)" stroke-width="1.5"/>
+            <line x1="80" y1="150" x2="160" y2="150" stroke="rgba(200,192,168,0.5)" stroke-width="1.5"/>
+            <!-- Handles -->
+            <rect x="25" y="130" width="12" height="40" rx="2" fill="rgba(200,192,168,0.3)" stroke="rgba(200,192,168,0.5)" stroke-width="0.5"/>
+            <rect x="203" y="130" width="12" height="40" rx="2" fill="rgba(200,192,168,0.3)" stroke="rgba(200,192,168,0.5)" stroke-width="0.5"/>
+            <!-- Pillow -->
+            <ellipse cx="120" cy="80" rx="45" ry="20" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <div class="coffin-price" id="coffinPrice">55 000 тг</div>
+        <div class="coffin-desc" id="coffinDesc">Сосна · 170 см · Чёрный · Классика</div>
+        <p style="font-size: 11px; color: var(--gray); font-style: italic;">Гроб для усопшего изготавливается<br>в течение 12-24 часов</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="section-inner">
+    <p class="section-label">Комплексные решения</p>
+    <h2 class="section-title">Ритуальные <em>пакеты</em></h2>
+
+    <div class="packages-grid">
+      <div class="package-card">
+        <p class="pkg-name">Базовый</p>
+        <p class="pkg-price">180 000 <span>тг</span></p>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Гроб стандарт (сосна)</li>
+          <li>Катафалк до кладбища</li>
+          <li>Организационные услуги</li>
+          <li>Венок 1 шт.</li>
+          <li>Музыка (запись)</li>
+          <li>Свидетельство о смерти</li>
+        </ul>
+        <button class="btn-outline" style="width:100%;" onclick="addToCart('Базовый пакет', 180000)">Выбрать пакет</button>
+      </div>
+
+      <div class="package-card featured">
+        <div class="pkg-badge">Популярно</div>
+        <p class="pkg-name">Стандарт</p>
+        <p class="pkg-price">380 000 <span>тг</span></p>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Гроб дуб + атлас кремовый</li>
+          <li>Катафалк + автобус 20 мест</li>
+          <li>Живая музыка (2 часа)</li>
+          <li>Видео памяти (слайд-шоу)</li>
+          <li>Венки 3 шт. + цветы</li>
+          <li>Участок и оформление</li>
+          <li>Психолог (1 сеанс)</li>
+          <li>Организатор на весь день</li>
+        </ul>
+        <button class="btn-primary" style="width:100%;" onclick="addToCart('Стандарт пакет', 380000)">Выбрать пакет</button>
+      </div>
+
+      <div class="package-card">
+        <p class="pkg-name">Премиум</p>
+        <p class="pkg-price">750 000 <span>тг</span></p>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Гроб красное дерево + шёлк</li>
+          <li>Катафалк VIP + автобус 40 мест</li>
+          <li>Живой ансамбль весь день</li>
+          <li>Оживление фото усопшего</li>
+          <li>Видео-фильм памяти</li>
+          <li>Цветочное оформление полное</li>
+          <li>VIP участок на кладбище</li>
+          <li>Психолог (3 сеанса)</li>
+          <li>Персональный куратор</li>
+          <li>Поминальный стол (до 50 чел.)</li>
+        </ul>
+        <button class="btn-outline" style="width:100%;" onclick="addToCart('Премиум пакет', 750000)">Выбрать пакет</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLOT SECTION -->
+<section id="plot">
+  <div class="section-inner">
+    <p class="section-label">Место захоронения</p>
+    <h2 class="section-title">Участки на <em>кладбище</em></h2>
+
+    <div class="plot-grid">
+      <div class="plot-card" onclick="addToCart('Участок Стандарт', 80000)">
+        <p class="plot-zone">Зона А · Стандарт</p>
+        <h3>Стандартный участок</h3>
+        <ul class="plot-features">
+          <li>Площадь 3 × 2 м</li>
+          <li>Установка надгробия</li>
+          <li>Ограждение</li>
+          <li>Разметка и оформление</li>
+        </ul>
+        <p class="plot-price">80 000 тг</p>
+      </div>
+
+      <div class="plot-card" onclick="addToCart('Участок Расширенный', 160000)">
+        <p class="plot-zone">Зона Б · Расширенный</p>
+        <h3>Расширенный участок</h3>
+        <ul class="plot-features">
+          <li>Площадь 4 × 3 м</li>
+          <li>Брусчатка вокруг</li>
+          <li>Декоративное ограждение</li>
+          <li>Уход 1 год включён</li>
+          <li>Освещение</li>
+        </ul>
+        <p class="plot-price">160 000 тг</p>
+      </div>
+
+      <div class="plot-card" onclick="addToCart('Участок VIP', 350000)">
+        <p class="plot-zone">Зона В · VIP</p>
+        <h3>VIP участок</h3>
+        <ul class="plot-features">
+          <li>Площадь 6 × 4 м</li>
+          <li>Гранитное оформление</li>
+          <li>Уход 3 года включён</li>
+          <li>Именная табличка</li>
+          <li>Озеленение и цветники</li>
+          <li>Видеонаблюдение</li>
+        </ul>
+        <p class="plot-price">350 000 тг</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPORT -->
+<section id="transport">
+  <div class="section-inner">
+    <p class="section-label">Транспортные услуги</p>
+    <h2 class="section-title">Сопровождение <em>в пути</em></h2>
+
+    <div class="transport-grid">
+      <div class="transport-visual">
+        <svg viewBox="0 0 300 160" width="280" height="150">
+          <!-- Bus silhouette -->
+          <rect x="10" y="50" width="260" height="90" rx="8" fill="rgba(200,192,168,0.08)" stroke="rgba(200,192,168,0.3)" stroke-width="1"/>
+          <rect x="20" y="40" width="190" height="55" rx="4" fill="rgba(200,192,168,0.05)" stroke="rgba(200,192,168,0.2)" stroke-width="0.5"/>
+          <!-- Windows -->
+          <rect x="30" y="50" width="35" height="25" rx="3" fill="rgba(200,192,168,0.12)" stroke="rgba(200,192,168,0.2)" stroke-width="0.5"/>
+          <rect x="75" y="50" width="35" height="25" rx="3" fill="rgba(200,192,168,0.12)" stroke="rgba(200,192,168,0.2)" stroke-width="0.5"/>
+          <rect x="120" y="50" width="35" height="25" rx="3" fill="rgba(200,192,168,0.12)" stroke="rgba(200,192,168,0.2)" stroke-width="0.5"/>
+          <rect x="165" y="50" width="30" height="25" rx="3" fill="rgba(200,192,168,0.12)" stroke="rgba(200,192,168,0.2)" stroke-width="0.5"/>
+          <!-- Wheels -->
+          <circle cx="60" cy="145" r="15" fill="var(--dark3)" stroke="rgba(200,192,168,0.4)" stroke-width="1.5"/>
+          <circle cx="60" cy="145" r="6" fill="rgba(200,192,168,0.3)"/>
+          <circle cx="220" cy="145" r="15" fill="var(--dark3)" stroke="rgba(200,192,168,0.4)" stroke-width="1.5"/>
+          <circle cx="220" cy="145" r="6" fill="rgba(200,192,168,0.3)"/>
+          <!-- Text -->
+          <text x="150" y="120" text-anchor="middle" fill="rgba(200,192,168,0.5)" font-size="11" font-family="Cormorant Garamond, serif" letter-spacing="2">ВЕЧНЫЙ ПОКОЙ</text>
+        </svg>
+      </div>
+
+      <div class="transport-info">
+        <h3>Автобус для гостей и катафалк</h3>
+        <p>Обеспечиваем комфортный и достойный проезд всех участников траурной процессии. Водители с опытом работы на церемониях, тихая и уважительная обстановка.</p>
+
+        <div class="transport-options">
+          <div class="t-option" onclick="addToCart('Микроавтобус 20 мест', 30000)">
+            <span>Микроавтобус · 20 мест</span>
+            <span>30 000 тг</span>
+          </div>
+          <div class="t-option" onclick="addToCart('Автобус 40 мест', 50000)">
+            <span>Автобус · 40 мест</span>
+            <span>50 000 тг</span>
+          </div>
+          <div class="t-option" onclick="addToCart('Автобус 60 мест', 70000)">
+            <span>Автобус · 60 мест</span>
+            <span>70 000 тг</span>
+          </div>
+          <div class="t-option" onclick="addToCart('Катафалк стандарт', 25000)">
+            <span>Катафалк стандарт</span>
+            <span>25 000 тг</span>
+          </div>
+          <div class="t-option" onclick="addToCart('Катафалк VIP', 45000)">
+            <span>Катафалк VIP (Mercedes)</span>
+            <span>45 000 тг</span>
+          </div>
+        </div>
+
+        <button class="btn-primary" onclick="openModal('transport-order')">Забронировать транспорт</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIAL SERVICES -->
+<section id="special">
+  <div class="section-inner">
+    <p class="section-label">Особые услуги</p>
+    <h2 class="section-title">Сохранить <em>память</em></h2>
+
+    <div class="special-grid">
+      <div class="special-card" onclick="addToCart('Оживление фото', 35000)">
+        <div class="special-num">01</div>
+        <div class="special-content">
+          <h3>Оживление фотографии</h3>
+          <p>Уникальная нейросетевая технология позволяет создать короткое видео, где фотография усопшего «оживает» — глаза открываются, лёгкое движение. Это не подмена реальности, а последняя возможность увидеть родного человека.</p>
+          <p class="price">от 35 000 тг · срок: 24 часа</p>
+        </div>
+      </div>
+
+      <div class="special-card" onclick="addToCart('Видео-фильм памяти', 45000)">
+        <div class="special-num">02</div>
+        <div class="special-content">
+          <h3>Видео-фильм памяти</h3>
+          <p>Профессиональный траурный ролик из ваших фотографий и видео с музыкальным сопровождением. Монтаж, цветокоррекция, титры. Формат MP4 и USB-носитель в память.</p>
+          <p class="price">от 45 000 тг · до 10 минут</p>
+        </div>
+      </div>
+
+      <div class="special-card" onclick="addToCart('Живая музыка', 60000)">
+        <div class="special-num">03</div>
+        <div class="special-content">
+          <h3>Живое музыкальное сопровождение</h3>
+          <p>Ансамбль или солист. Классика, духовная музыка, казахские народные мелодии, европейские траурные произведения. Репетиция с семьёй, подбор любимых произведений усопшего.</p>
+          <p class="price">от 60 000 тг · весь день</p>
+        </div>
+      </div>
+
+      <div class="special-card" onclick="addToCart('Психологическая помощь', 15000)">
+        <div class="special-num">04</div>
+        <div class="special-content">
+          <h3>Психологическая помощь</h3>
+          <p>Горевание — это процесс. Наш специалист по работе с утратой поможет семье пройти через него с достоинством. Первый сеанс возможен уже в день потери. Работаем со взрослыми и детьми.</p>
+          <p class="price">от 15 000 тг / сеанс · выезд на дом</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOWERS -->
+<section id="flowers">
+  <div class="section-inner">
+    <p class="section-label">Цветы и венки</p>
+    <h2 class="section-title">Цветочное <em>оформление</em></h2>
+
+    <div class="flowers-grid">
+      <div class="flower-card" onclick="addToCart('Венок классический', 8000)">
+        <span class="flower-emoji">💐</span>
+        <div class="flower-name">Венок классический</div>
+        <div class="flower-price">8 000 тг</div>
+      </div>
+      <div class="flower-card" onclick="addToCart('Венок с лентой', 12000)">
+        <span class="flower-emoji">🌸</span>
+        <div class="flower-name">Венок с лентой</div>
+        <div class="flower-price">12 000 тг</div>
+      </div>
+      <div class="flower-card" onclick="addToCart('Траурная корзина', 18000)">
+        <span class="flower-emoji">🌺</span>
+        <div class="flower-name">Траурная корзина</div>
+        <div class="flower-price">18 000 тг</div>
+      </div>
+      <div class="flower-card" onclick="addToCart('Белые лилии (букет)', 5000)">
+        <span class="flower-emoji">⚘</span>
+        <div class="flower-name">Белые лилии</div>
+        <div class="flower-price">5 000 тг / букет</div>
+      </div>
+      <div class="flower-card" onclick="addToCart('Розы белые (10 шт)', 4000)">
+        <span class="flower-emoji">🌹</span>
+        <div class="flower-name">Белые розы</div>
+        <div class="flower-price">4 000 тг / 10 шт</div>
+      </div>
+      <div class="flower-card" onclick="addToCart('Хризантемы (букет)', 3500)">
+        <span class="flower-emoji">🌼</span>
+        <div class="flower-name">Хризантемы</div>
+        <div class="flower-price">3 500 тг / букет</div>
+      </div>
+      <div class="flower-card" onclick="addToCart('Цветочная арка', 35000)">
+        <span class="flower-emoji">🌿</span>
+        <div class="flower-name">Цветочная арка</div>
+        <div class="flower-price">35 000 тг</div>
+      </div>
+      <div class="flower-card" onclick="addToCart('Оформление гроба цветами', 25000)">
+        <span class="flower-emoji">🕊️</span>
+        <div class="flower-name">Оформление гроба</div>
+        <div class="flower-price">от 25 000 тг</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOYALTY -->
+<section id="loyalty">
+  <div class="section-inner">
+    <p class="section-label">Забота о семьях</p>
+    <h2 class="section-title">Программа <em>лояльности</em></h2>
+    <p style="font-size: 13px; color: var(--gray2); max-width: 600px; margin-bottom: 48px; line-height: 1.8;">
+      Мы понимаем, что потеря близкого — это не единственный момент. Наша программа лояльности создана для семей, которые доверяют нам снова и снова, а также для тех, кто рекомендует нас другим.
+    </p>
+
+    <div class="loyalty-grid">
+      <div class="loyalty-tier" onclick="openModal('loyalty-info')">
+        <span class="tier-icon">🌑</span>
+        <p class="tier-name">Серебряный</p>
+        <p class="tier-points">0 — 1 обращение</p>
+        <div class="tier-discount">5%</div>
+        <p class="tier-benefits">Скидка на все услуги при повторном обращении</p>
+      </div>
+      <div class="loyalty-tier" onclick="openModal('loyalty-info')">
+        <span class="tier-icon">🌓</span>
+        <p class="tier-name">Золотой</p>
+        <p class="tier-points">2 — 3 обращения</p>
+        <div class="tier-discount">10%</div>
+        <p class="tier-benefits">Скидка + приоритетное обслуживание 24/7</p>
+      </div>
+      <div class="loyalty-tier" onclick="openModal('loyalty-info')">
+        <span class="tier-icon">🌕</span>
+        <p class="tier-name">Платиновый</p>
+        <p class="tier-points">4+ обращения</p>
+        <div class="tier-discount">15%</div>
+        <p class="tier-benefits">Скидка + персональный куратор + бесплатный психолог</p>
+      </div>
+      <div class="loyalty-tier" onclick="openModal('loyalty-info')">
+        <span class="tier-icon">⭐</span>
+        <p class="tier-name">Партнёр</p>
+        <p class="tier-points">Реферальная программа</p>
+        <div class="tier-discount">8%</div>
+        <p class="tier-benefits">Вознаграждение за каждого рекомендованного клиента</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CART BAR -->
+<div class="cart-bar" onclick="openModal('cart')" id="cartBar" style="display:none;">
+  <div class="cart-count" id="cartCount">0</div>
+  <span class="cart-text">Ваш заказ</span>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo"><span>Вечный</span> Покой</span>
+      <p>Профессиональные ритуальные услуги с 2005 года. Мы рядом в самый трудный момент — деликатно, с уважением и заботой.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Услуги</h4>
+      <ul>
+        <li><a href="#coffins">Гробы на заказ</a></li>
+        <li><a href="#transport">Транспорт</a></li>
+        <li><a href="#special">Видео памяти</a></li>
+        <li><a href="#special">Психологическая помощь</a></li>
+        <li><a href="#plot">Участки</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Цветы</h4>
+      <ul>
+        <li><a href="#flowers">Венки</a></li>
+        <li><a href="#flowers">Букеты</a></li>
+        <li><a href="#flowers">Корзины</a></li>
+        <li><a href="#flowers">Оформление</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="#">+7 (700) 000-00-00</a></li>
+        <li><a href="#">Круглосуточно</a></li>
+        <li><a href="#">г. Астана, ул. Мира 1</a></li>
+        <li><a href="#">info@eternal-peace.kz</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Вечный Покой. Все права защищены.</span>
+    <span>Лицензия РК · ОГРН 000000000000</span>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-order">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('order')">✕</button>
+    <h2>Получить консультацию</h2>
+    <p class="modal-sub">Мы перезвоним в течение 15 минут. Круглосуточно.</p>
+    <div class="form-group"><label>Ваше имя</label><input type="text" placeholder="Имя"></div>
+    <div class="form-group"><label>Телефон</label><input type="tel" placeholder="+7 (___) ___-__-__"></div>
+    <div class="form-group"><label>Что вас интересует</label>
+      <select>
+        <option>Организация похорон</option>
+        <option>Выбор гроба</option>
+        <option>Транспорт</option>
+        <option>Участок на кладбище</option>
+        <option>Психологическая помощь</option>
+        <option>Видео памяти</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Комментарий</label><textarea placeholder="Любые пожелания или вопросы..."></textarea></div>
+    <button class="btn-primary" style="width:100%;" onclick="submitForm('order')">Отправить заявку</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-cart">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('cart')">✕</button>
+    <h2>Ваш заказ</h2>
+    <p class="modal-sub">Предварительная смета</p>
+    <div id="cartItems" style="margin-bottom: 24px;"></div>
+    <div style="border-top: 0.5px solid rgba(200,192,168,0.2); padding-top: 16px; margin-bottom: 24px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <span style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray2);">Итого</span>
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--accent);" id="cartTotal">0 тг</span>
+      </div>
+      <div class="form-group"><label>Ваше имя</label><input type="text" id="cartName" placeholder="Как к вам обращаться"></div>
+      <div class="form-group"><label>Телефон</label><input type="tel" id="cartPhone" placeholder="+7 (___) ___-__-__"></div>
+    </div>
+    <button class="btn-primary" style="width:100%;" id="cartSubmitBtn" onclick="submitForm('cart')">Оформить заказ</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-contact">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('contact')">✕</button>
+    <h2>Связаться с нами</h2>
+    <p class="modal-sub">Работаем круглосуточно, без выходных</p>
+    <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+      <div style="background: var(--dark2); padding: 20px; border: 0.5px solid rgba(200,192,168,0.15);">
+        <p style="font-size: 10px; letter-spacing: 2px; color: var(--gray2); margin-bottom: 8px; text-transform: uppercase;">Экстренная линия 24/7</p>
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--accent);">+7 (700) 000-00-00</p>
+      </div>
+      <div style="background: var(--dark2); padding: 20px; border: 0.5px solid rgba(200,192,168,0.15);">
+        <p style="font-size: 10px; letter-spacing: 2px; color: var(--gray2); margin-bottom: 8px; text-transform: uppercase;">Адрес</p>
+        <p style="font-size: 14px; color: var(--white2);">г. Астана, ул. Мира 1</p>
+        <p style="font-size: 12px; color: var(--gray2);">Пн-Вс: 24 часа</p>
+      </div>
+    </div>
+    <button class="btn-primary" style="width:100%;" onclick="closeModal('contact')">Понятно</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-loyalty-info">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('loyalty-info')">✕</button>
+    <h2>Программа лояльности</h2>
+    <p class="modal-sub">Как стать участником</p>
+    <p style="font-size: 13px; color: var(--gray2); line-height: 1.8; margin-bottom: 20px;">Карта лояльности оформляется автоматически при первом обращении. Укажите при заказе номер телефона — система сама присвоит вам статус по истории обращений.</p>
+    <p style="font-size: 13px; color: var(--gray2); line-height: 1.8; margin-bottom: 20px;">Скидки суммируются с акциями. Действует на все услуги и товары, кроме муниципальных сборов.</p>
+    <button class="btn-primary" style="width:100%;" onclick="openModal('order'); closeModal('loyalty-info')">Записаться и получить карту</button>
+  </div>
+</div>
+
+<!-- Generic service modals -->
+<div class="modal-overlay" id="modal-video-service">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('video-service')">✕</button>
+    <h2>Видео и оживление фото</h2>
+    <p class="modal-sub">Сохраним память навсегда</p>
+    <p style="font-size: 13px; color: var(--gray2); line-height: 1.8; margin-bottom: 20px;">
+      Технология оживления фото использует нейросетевую обработку: по одному портретному снимку мы создаём короткое видео (5–10 секунд), в котором лицо на фотографии оживает — лёгкое движение головы, дыхание, взгляд.
+    </p>
+    <p style="font-size: 13px; color: var(--gray2); line-height: 1.8; margin-bottom: 24px;">
+      Видео-фильм памяти — монтаж из ваших фото и видеозаписей с музыкой на USB-носителе.
+    </p>
+    <button class="btn-primary" onclick="addToCart('Оживление фото', 35000); closeModal('video-service')">Заказать · от 35 000 тг</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-psych-service">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('psych-service')">✕</button>
+    <h2>Психологическая помощь</h2>
+    <p class="modal-sub">Вы не одни в этом</p>
+    <p style="font-size: 13px; color: var(--gray2); line-height: 1.8; margin-bottom: 20px;">
+      Потеря близкого — тяжёлый стресс. Наш специалист по кризисной психологии и горю работает с семьями с 2010 года. Первый сеанс может состояться в день звонка, в том числе с выездом на дом.
+    </p>
+    <button class="btn-primary" onclick="addToCart('Психологическая помощь (1 сеанс)', 15000); closeModal('psych-service')">Записаться · 15 000 тг / сеанс</button>
+  </div>
+</div>
+
+<script>
+  let cart = [];
+
+  function selectConfig(btn) {
+    const group = btn.dataset.group;
+    document.querySelectorAll(`[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateCoffinPreview();
+  }
+
+  function updateCoffinPreview() {
+    const sizeBtn = document.querySelector('[data-group="size"].active');
+    const materialBtn = document.querySelector('[data-group="material"].active');
+    const colorBtn = document.querySelector('[data-group="color"].active');
+    const styleBtn = document.querySelector('[data-group="style"].active');
+    const liningBtn = document.querySelector('[data-group="lining"].active');
+
+    const base = parseInt(sizeBtn?.dataset.price || 55000);
+    const mat = parseInt(materialBtn?.dataset.price || 0);
+    const col = parseInt(colorBtn?.dataset.price || 0);
+    const sty = parseInt(styleBtn?.dataset.price || 0);
+    const lin = parseInt(liningBtn?.dataset.price || 0);
+    const total = base + mat + col + sty + lin;
+
+    document.getElementById('coffinPrice').textContent = total.toLocaleString('ru') + ' тг';
+
+    const sizeName = sizeBtn?.textContent || '170 см';
+    const matName = materialBtn?.textContent || 'Сосна';
+    const colName = colorBtn?.textContent || 'Чёрный';
+    const styName = styleBtn?.textContent || 'Классика';
+    document.getElementById('coffinDesc').textContent = `${matName} · ${sizeName} · ${colName} · ${styName}`;
+
+    const color = colorBtn?.dataset.color || '#1a1a1a';
+    const gradStop1 = document.getElementById('gradStop1');
+    const gradStop2 = document.getElementById('gradStop2');
+    if (gradStop1) { gradStop1.style.stopColor = color; }
+    if (gradStop2) {
+      const darker = color === '#e8e0d0' ? '#c8c0b0' : color;
+      gradStop2.style.stopColor = darker;
+    }
+
+    const cross = document.getElementById('coffinCross');
+    if (styleBtn?.dataset.val === 'muslim') {
+      cross?.setAttribute('display', 'none');
+    } else {
+      cross?.setAttribute('display', 'block');
+    }
+  }
+
+  function addToCartCoffin() {
+    const desc = document.getElementById('coffinDesc').textContent;
+    const price = parseInt(document.getElementById('coffinPrice').textContent.replace(/\D/g,''));
+    addToCart('Гроб: ' + desc, price);
+  }
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    document.getElementById('cartBar').style.display = 'flex';
+    document.getElementById('cartCount').textContent = cart.length;
+    showToast('Добавлено в заказ');
+    updateCartModal();
+  }
+
+  function updateCartModal() {
+    const container = document.getElementById('cartItems');
+    if (!container) return;
+    let total = 0;
+    container.innerHTML = cart.map((item, i) => {
+      total += item.price;
+      return `<div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 0.5px solid rgba(200,192,168,0.08); font-size: 12px;">
+        <span style="color: var(--gray3); flex: 1;">${item.name}</span>
+        <span style="color: var(--accent); margin: 0 16px; white-space: nowrap;">${item.price.toLocaleString('ru')} тг</span>
+        <button onclick="removeFromCart(${i})" style="background: none; border: none; color: var(--gray); cursor: pointer; font-size: 16px; padding: 0 4px;">✕</button>
+      </div>`;
+    }).join('');
+    document.getElementById('cartTotal').textContent = total.toLocaleString('ru') + ' тг';
+  }
+
+  function removeFromCart(i) {
+    cart.splice(i, 1);
+    if (cart.length === 0) document.getElementById('cartBar').style.display = 'none';
+    document.getElementById('cartCount').textContent = cart.length;
+    updateCartModal();
+  }
+
+  function openModal(id) {
+    updateCartModal();
+    document.getElementById('modal-' + id)?.classList.add('open');
+  }
+
+  function closeModal(id) {
+    document.getElementById('modal-' + id)?.classList.remove('open');
+  }
+
+  document.querySelectorAll('.modal-overlay').forEach(el => {
+    el.addEventListener('click', e => { if (e.target === el) el.classList.remove('open'); });
+  });
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbz847GvFK845t_03ymisxlIjiV0XlkvEsEitZ-03xNJbjKc75Nu9nJLGvBDgx6-T4H-pA/exec';
+
+  function sendToSheets(payload) {
+    return new Promise((resolve) => {
+      const params = new URLSearchParams({
+        type:  payload.type  || '',
+        name:  payload.name  || '',
+        phone: payload.phone || '',
+        order: payload.order || '',
+        total: payload.total || ''
+      });
+      const img = new Image();
+      img.onload  = () => resolve();
+      img.onerror = () => resolve();
+      img.src = SHEETS_URL + '?' + params.toString();
+    });
+  }
+
+  async function submitForm(type) {
+    if (type === 'cart') {
+      const name = document.getElementById('cartName')?.value.trim() || '—';
+      const phone = document.getElementById('cartPhone')?.value.trim() || '—';
+
+      if (cart.length === 0) { showToast('Корзина пуста'); return; }
+
+      const btn = document.getElementById('cartSubmitBtn');
+      if (btn) { btn.disabled = true; btn.textContent = 'Отправка...'; }
+
+      const orderDesc = cart.map(i => i.name).join('; ');
+      const total = cart.reduce((s, i) => s + i.price, 0);
+
+      await sendToSheets({
+        type: 'cart',
+        name: name,
+        phone: phone,
+        order: orderDesc,
+        total: total + ' тг'
+      });
+
+      closeModal(type);
+      showToast('Заявка отправлена. Перезвоним в течение 15 минут.');
+      cart = [];
+      document.getElementById('cartBar').style.display = 'none';
+      if (btn) { btn.disabled = false; btn.textContent = 'Оформить заказ'; }
+
+    } else if (type === 'order') {
+      const name = document.querySelector('#modal-order input[type="text"]')?.value.trim() || '—';
+      const phone = document.querySelector('#modal-order input[type="tel"]')?.value.trim() || '—';
+      const service = document.querySelector('#modal-order select')?.value || '—';
+      const comment = document.querySelector('#modal-order textarea')?.value.trim() || '—';
+
+      await sendToSheets({
+        type: 'order',
+        name: name,
+        phone: phone,
+        order: service + (comment !== '—' ? ' / ' + comment : ''),
+        total: '—'
+      });
+
+      closeModal(type);
+      showToast('Заявка отправлена. Перезвоним в течение 15 минут.');
+    } else {
+      closeModal(type);
+      showToast('Заявка отправлена. Перезвоним в течение 15 минут.');
+    }
+  }
+
+  updateCoffinPreview();
+</script>
+</body>
+</html>
